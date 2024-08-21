@@ -5,9 +5,9 @@ export default class NewsItem extends Component {
         let { title, disc, url, imgUrl, source, author, time } = this.props;
         return (
             <>
-                <div className="card my-3" style={this.props.theme === 'dark' ? { border: '2px solid white' } : {}}>
+                <div className="card my-3" style={this.props.theme === 'dark' ? { border: '4px solid white' } : { border: '2px solid #470f65' }}>
                     {/* badge */}
-                    <div style={{ position: 'absolute', right: '0', top: '0', display: 'flex' }}>
+                    <div style={{ position: 'absolute', right: '0', top: '2', display: 'flex' }}>
                         <span className=" badge rounded-pill bg-danger">
                             {source}
                         </span>
@@ -17,8 +17,8 @@ export default class NewsItem extends Component {
                     <div className="card-body" style={this.props.theme === 'light' ? { backgroundColor: 'white', color: 'black' } : { backgroundColor: 'black', color: 'white' }}>
                         <h5 className="card-title">{title}</h5>
                         <p className="card-text">{disc}</p>
-                        <p className="card-text"><small className="text-body-secondary">By {author} at {new Date(time).toGMTString()}</small></p>
-                        <a href={url} target='blank' className="btn btn-primary">Read More...</a>
+                        <p className="card-text"><small className={`text-body-${this.props.theme === 'light' ? 'dark' : 'light'}`}>By {author} at {new Date(time).toGMTString()}</small></p>
+                        <a href={url} target='blank' className={`btn btn-${this.props.theme === 'light' ? 'dark' : 'light'}`}>Read More...</a>
                     </div>
                 </div>
             </>
