@@ -5,7 +5,7 @@ export default class Navbar extends Component {
     render() {
         return (
             <>
-                <nav className="navbar navbar-expand-lg bg-body-tertiary">
+                <nav className={`fixed-top navbar navbar-expand-lg bg-body-tertiary bg-${this.props.theme}`} data-bs-theme={this.props.theme}>
                     <div className="container-fluid">
                         <Link className="navbar-brand" to="/">S-News</Link>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +30,7 @@ export default class Navbar extends Component {
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/science">Science</Link>
-                                </li> 
+                                </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/sports">Sports</Link>
                                 </li>
@@ -38,6 +38,10 @@ export default class Navbar extends Component {
                                     <Link className="nav-link" to="/technology">Technology</Link>
                                 </li>
                             </ul>
+                        </div>
+                        <div className="form-check form-switch">
+                            <input className="form-check-input" onClick={this.props.changeTheme} type="checkbox" id="flexSwitchCheckDefault" />
+                            <label className="form-check-label" style={this.props.theme === 'light' ? { color: 'black' } : { color: 'white' }} htmlFor="flexSwitchCheckDefault">{this.props.theme === 'light' ? "Light Mode" : "Dark Mode"}</label>
                         </div>
                     </div>
                 </nav>
